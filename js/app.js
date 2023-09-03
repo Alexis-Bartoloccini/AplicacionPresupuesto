@@ -1,8 +1,6 @@
 const ingresos = [
-    new Ingreso ("Ingreso", 1),
 ]
 const egresos = [
-    new Egreso("Egreso", 1),
 ]
 let cargarApp =()=> {
     cargarCabecero();
