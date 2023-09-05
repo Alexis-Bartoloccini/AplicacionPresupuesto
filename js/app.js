@@ -1,3 +1,4 @@
+console.log(0/400);
 const ingresos = [
 ]
 const egresos = [
@@ -21,9 +22,13 @@ let totalEgresos = ()=>{
     }
     return totalEgreso
 }
+// let comprobarPorcentajeEgreso = () => {
+//     porcentajeEgreso=
+// }
 let cargarCabecero =()=>{
     let presupuesto = totalIngresos() - totalEgresos();
-    let porcentajeEgreso = totalEgresos() / totalIngresos()
+    let porcentajeEgreso = (isNaN(totalEgresos() / totalIngresos())|| totalEgresos() / totalIngresos() === Infinity ?  0 : (totalEgresos() / totalIngresos()));
+
     document.getElementById("presupuesto").innerHTML = formatoMoneda(presupuesto) ;
     document.getElementById("porcentaje").innerHTML= formatoPorcentaje(porcentajeEgreso);
     document.getElementById("egresos").innerHTML= formatoMoneda(totalEgresos());
@@ -104,7 +109,7 @@ let agregarDato = () => {
     let tipo = forma["tipo"]
     let descripcion= forma["descripcion"];
     let valor = forma["valor"];
-    if(descripcion.value !== "" && valor.value !==""){
+    if(descripcion.value !== "" && valor.value !=="" && valor.value>0){
         if (tipo.value==="ingreso"){
             ingresos.push(new Ingreso(descripcion.value, Number(valor.value)))
             cargarCabecero();
