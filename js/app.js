@@ -109,10 +109,12 @@ let agregarDato = () => {
             ingresos.push(new Ingreso(descripcion.value, Number(valor.value)))
             cargarCabecero();
             cargarIngresos();
+            forma.reset();
         } else if (tipo.value==="egreso"){
             egresos.push( new Egreso(descripcion.value, Number(valor.value)))
             cargarCabecero();
             cargarEgresos();
+            forma.reset();
         }
     }
 }
